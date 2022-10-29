@@ -1,40 +1,28 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
   "extends": [
     "next/core-web-vitals",
     "prettier",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
   ],
-  "parserOptions": {
-    "project": [
-      "./tsconfig.json"
-    ]
-  },
-  "rules": {
-    "comma-dangle": [
-      "error",
-      "only-multiline"
-    ]
-  },
   "overrides": [
     {
+      "extends": [
+        "next/core-web-vitals",
+        "prettier",
+        "eslint:recommended"
+      ],
       "files": [
         "**/*.js",
         "**/*.jsx"
       ],
       "plugins": [
         "prettier"
-      ],
-      "extends": [
-        "next/core-web-vitals",
-        "prettier",
-        "eslint:recommended"
       ],
       "rules": {
         "comma-dangle": [
@@ -43,5 +31,54 @@
         ]
       }
     }
-  ]
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "root": true,
+  "rules": {
+    "@typescript-eslint/no-empty-interface": "off",
+    "comma-dangle": [
+      2,
+      "only-multiline"
+    ],
+    "import/no-extraneous-dependencies": [
+      2,
+      {
+        "devDependencies": [
+          "**/*.test.*",
+          "**/*.stories.*"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "react/display-name": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "custom": "ignore"
+      }
+    ],
+    "react/prop-types": "off",
+    "react/require-default-props": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }
