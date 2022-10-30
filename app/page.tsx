@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
 
-export default function Home() {
+const Home = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -10,7 +10,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>app/page.tsx</code>
         </p>
 
@@ -19,7 +19,6 @@ export default function Home() {
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js 13</p>
           </a>
-
           <a
             href="https://github.com/vercel/next.js/tree/canary/examples"
             className={styles.card}
@@ -46,12 +45,14 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
