@@ -24,7 +24,7 @@ jobs:
         run: yarn set version 3.x
 
       - name: Get yarn cache
-        id: yarn-cache
+        id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore cached dependencies
