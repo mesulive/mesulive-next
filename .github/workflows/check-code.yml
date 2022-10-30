@@ -25,7 +25,7 @@ jobs:
 
       - name: Get yarn cache
         id: yarn-cache-dir-path
-        run: echo "name=dir::$(yarn config get cacheFolder)" >> $GITHUB_STATE
+        run: echo "{dir}=$(yarn config get cacheFolder)" >> $GITHUB_STATE
 
       - name: Restore cached dependencies
         id: yarn-cache
@@ -36,7 +36,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      - if: steps.cache-npm.outputs.cache-hit != 'true'
         name: Install dependencies
         run: yarn
 
