@@ -12,7 +12,11 @@ jobs:
   check-style:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: action/checkout@v3
+
       - name: Initialize
         uses: ./.github/workflows/initialize.yml
+
       - name: Check eslint
         run: yarn lint
