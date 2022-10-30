@@ -1,0 +1,34 @@
+name: Initialize workplace environment
+
+on: workflow_call
+
+jobs:
+  intialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Set yarn v3
+        run: yarn set version 3.x
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore cached dependencies
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: Install dependencies
+        run: yarn
