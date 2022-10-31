@@ -2135,6 +2135,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mesulive-next@workspace:."
   dependencies:
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@types/node": 18.11.7
     "@types/react": 18.0.24
