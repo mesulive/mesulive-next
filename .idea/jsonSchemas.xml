@@ -15,13 +15,13 @@
                     <option name="path" value=".github/workflows/check-code-style.yml" />
                   </Item>
                   <Item>
+                    <option name="path" value=".github/workflows/check-code.yml" />
+                  </Item>
+                  <Item>
                     <option name="path" value=".github/workflows/initialize-environment.yml" />
                   </Item>
                   <Item>
                     <option name="path" value=".github/workflows/initialize.yml" />
-                  </Item>
-                  <Item>
-                    <option name="path" value=".github/workflows/check-code.yml" />
                   </Item>
                 </list>
               </option>
