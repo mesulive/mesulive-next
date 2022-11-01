@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/yarn,webstorm,react,node,nextjs
-# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,webstorm,react,node,nextjs
+# Created by https://www.toptal.com/developers/gitignore/api/yarn,webstorm,react,node,nextjs,storybookjs
+# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,webstorm,react,node,nextjs,storybookjs
 
 ### NextJS ###
 # Dependencies
@@ -181,6 +181,12 @@ psd
 thumb
 sketch
 
+### StorybookJs ###
+# gitignore template for the Storybook, UI guide for front apps
+# website: https://storybook.js.org/
+
+storybook-static/
+
 ### WebStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -311,4 +317,4 @@ fabric.properties
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/yarn,webstorm,react,node,nextjs
+# End of https://www.toptal.com/developers/gitignore/api/yarn,webstorm,react,node,nextjs,storybookjs
