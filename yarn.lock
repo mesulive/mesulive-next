@@ -481,6 +481,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/font@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "@next/font@npm:13.0.1"
+  checksum: 653de06599d98c4a9c12500585be2dd298f428e43bab4b68d7676782aaf50ba462d8b7d87c90f1834483bf874ac4592c77628a7960fb52dc2df620fd2d0acfb6
+  languageName: node
+  linkType: hard
+
 "@next/swc-android-arm-eabi@npm:13.0.0":
   version: 13.0.0
   resolution: "@next/swc-android-arm-eabi@npm:13.0.0"
@@ -2386,6 +2393,7 @@ __metadata:
     "@emotion/styled": ^11.10.5
     "@mui/icons-material": ^5.10.9
     "@mui/material": ^5.10.11
+    "@next/font": ^13.0.1
     "@types/node": 18.11.7
     "@types/react": 18.0.24
     "@types/react-dom": 18.0.8
