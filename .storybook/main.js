@@ -1,7 +1,6 @@
-import { StorybookConfig } from "@storybook/core-common";
-import path from "path";
+const path = require("path");
 
-const config: StorybookConfig = {
+module.exports = {
   stories: [
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
@@ -33,5 +32,3 @@ const config: StorybookConfig = {
     return config;
   },
 };
-
-export default config;
