@@ -23,6 +23,9 @@
                   <Item>
                     <option name="path" value=".github/workflows/initialize.yml" />
                   </Item>
+                  <Item>
+                    <option name="path" value=".github/workflows/deploy-gh-page.yml" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>
