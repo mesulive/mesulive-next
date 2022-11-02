@@ -1,0 +1,41 @@
+import { ColorItem, ColorPalette, Meta } from "@storybook/addon-docs";
+
+<Meta title="Colors"/>
+
+# Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Black"
+    colors={{
+      BLACK: "#241F1C",
+      GRAY_1: "#3B3B3B",
+      GRAY_2: "#505050",
+      GRAY_3: "#757575",
+      GRAY_4: "#9B9B9B",
+      GRAY_5: "#C5C5C5",
+      GRAY_6: "#E0E0E0",
+    }}
+  />
+  <ColorItem
+    title="Main"
+    subtitle="Orange"
+    colors={{
+      MAIN_DARK: "#CC6708",
+      MAIN: "#FF8009",
+      MAIN_LIGHT: "#FFA857",
+      MAIN_LIGHTER: "#FFECDC",
+    }}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="Yellow"
+    colors={{ SECONDARY: "#FFB703" }}
+  />
+  <ColorItem
+    title="Common"
+    colors={{
+      ERROR: "#EF5350",
+    }}
+  />
+</ColorPalette>

@@ -229,7 +229,7 @@ Make sure that all grammar rule definitions are done before 'performSelfAnalysis
 <script src='`+n+`vendor/railroad-diagrams.js'><\/script>
 <script src='`+n+`src/diagrams_builder.js'><\/script>
 <script src='`+n+`src/diagrams_behavior.js'><\/script>
-<script src='`+n+`src/main.js'><\/script>
+<script src='`+n+`src/main.ts'><\/script>
 `,u=`
 <div id="diagrams" align="center"></div>    
 `,g=`
