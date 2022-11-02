@@ -16,7 +16,6 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.11",
-    "@next/font": "^13.0.1",
     "color": "^4.2.3",
     "csstype": "^3.1.1",
     "next": "13.0.0",
