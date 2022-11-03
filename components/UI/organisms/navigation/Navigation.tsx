@@ -24,9 +24,9 @@ export const Navigation = () => {
           p: pxArray(32, 16),
           zIndex: 20,
           borderRightColor: COLORS.GRAY_6,
-          height: `calc(100% - ${HEADER_HEIGHT}px)`,
 
           [theme.breakpoints.up("tablet")]: {
+            height: `calc(100% - ${HEADER_HEIGHT}px)`,
             top: HEADER_HEIGHT,
           },
         },
