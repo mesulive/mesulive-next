@@ -1,0 +1,3 @@
+export const NAVIGATION_TOGGLE_DURATION = 225;
+
+export const NAVIGATION_WIDTH = 249;

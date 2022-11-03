@@ -6,7 +6,7 @@ import {
 import { ThemeProvider as MuiThemeProvider } from "@mui/material";
 import type { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
-import { Layout } from "~/pages/Layout";
+import Layout from "~/pages/layout";
 import { theme } from "~/styles/theme";
 import "../styles/globals.css";
 
