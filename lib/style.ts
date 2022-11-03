@@ -1,6 +1,7 @@
 import { SxProps, Theme } from "@mui/material";
 import { Properties, Property } from "csstype";
 import { of } from "~/lib/types";
+import { BREAKPOINTS, ScreenType } from "~/styles/constants";
 
 export const cssObject = of<Properties>;
 
@@ -29,9 +30,9 @@ export const pxArray = (...arr: number[]): Property.Padding =>
     .map((px) => `${px}px`)
     .join(" ");
 
-export enum ScreenType {
-  mobile,
-  tablet,
-  laptop,
-  desktop,
-}
+export const getScreenType = (width: number): ScreenType => {
+  if (width < BREAKPOINTS[ScreenType.tablet]) return ScreenType.mobile;
+  if (width < BREAKPOINTS[ScreenType.laptop]) return ScreenType.tablet;
+  if (width < BREAKPOINTS[ScreenType.desktop]) return ScreenType.laptop;
+  return ScreenType.desktop;
+};
