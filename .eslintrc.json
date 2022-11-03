@@ -55,7 +55,8 @@
       {
         "devDependencies": [
           "**/*.test.*",
-          "**/*.stories.*"
+          "**/*.stories.*",
+          "**/*.config.*"
         ]
       }
     ],
