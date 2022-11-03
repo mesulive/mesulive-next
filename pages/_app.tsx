@@ -5,6 +5,7 @@ import {
 } from "@emotion/react";
 import { ThemeProvider as MuiThemeProvider } from "@mui/material";
 import type { AppProps } from "next/app";
+import { RecoilRoot } from "recoil";
 import { Layout } from "~/pages/Layout";
 import { theme } from "~/styles/theme";
 import "../styles/globals.css";
@@ -16,9 +17,11 @@ const App = ({ Component, pageProps }: AppProps) => {
     <CacheProvider value={cache}>
       <MuiThemeProvider theme={theme}>
         <EmotionThemeProvider theme={theme}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <RecoilRoot>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </RecoilRoot>
         </EmotionThemeProvider>
       </MuiThemeProvider>
     </CacheProvider>
