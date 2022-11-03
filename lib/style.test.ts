@@ -1,4 +1,4 @@
-import { pxArray } from "~/styles/utils";
+import { pxArray } from "~/lib/style";
 
 describe("p()", () => {
   test("p()", () => {
