@@ -1,11 +1,16 @@
-import { act } from "@testing-library/react";
+import { act, cleanup, waitFor } from "@testing-library/react";
 import { useState } from "react";
 import { atom, selector } from "recoil";
 import { v4 } from "uuid";
-import { useRecoilCallback } from "~/lib/hooks/recoil";
+import {
+  useContinuousRecoilValue,
+  useRecoilCallback,
+} from "~/lib/hooks/recoil";
 import { renderHook } from "~/lib/test";
 
 jest.useFakeTimers();
+
+afterAll(cleanup);
 
 describe("useRecoilCallback", () => {
   const DEFAULT_VALUE = 0;
@@ -107,5 +112,53 @@ describe("useRecoilCallback", () => {
     act(() => result.current.setCount(20));
     act(() => result.current.wrongDependedSetCallback());
     expect(result.current.getCallback()).toBe(10);
+  });
+});
+
+describe("useContinuousRecoilValue", () => {
+  const DEFAULT_VALUE = 0;
+
+  const asyncNumberSelector2 = selector({
+    key: v4(),
+    get: async () => {
+      return DEFAULT_VALUE;
+    },
+  });
+
+  const useTestContinuousRecoilValue = () => {
+    const { state } = useContinuousRecoilValue(asyncNumberSelector2, -1);
+    const refreshNumber = useRecoilCallback(
+      ({ refresh }) =>
+        () => {
+          refresh(asyncNumberSelector2);
+        },
+      []
+    );
+
+    return { state, refreshNumber };
+  };
+
+  /**
+   * 테스트 라이브러리 버그로 skip 처리
+   * https://github.com/testing-library/react-testing-library/issues/1051
+   */
+  test.skip("initial value", async () => {
+    const { result } = await waitFor(() =>
+      renderHook(() => useTestContinuousRecoilValue())
+    );
+    expect(result.current.state).toBe(-1);
+    cleanup();
+  });
+
+  /**
+   * 테스트 라이브러리 버그로 skip 처리
+   * https://github.com/testing-library/react-testing-library/issues/1051
+   */
+  test.skip("after 20ms", async () => {
+    const { result } = await waitFor(() =>
+      renderHook(() => useTestContinuousRecoilValue())
+    );
+    jest.advanceTimersByTime(20);
+    expect(result.current.state).toBe(DEFAULT_VALUE);
   });
 });

@@ -35,7 +35,6 @@ export const useContinuousRecoilValue = <T>(
   const [state, setState] = useState<T>(defaultValue);
   const [error, setError] = useState<Error | undefined>();
   const loadable = useRecoilValueLoadable(recoilValue);
-  console.log(loadable.state);
 
   useEffect(() => {
     switch (loadable.state) {
