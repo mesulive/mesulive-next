@@ -7,15 +7,13 @@ export const cssObject = of<Properties>;
 
 export const color = of<Property.Color>;
 
-export type SxEntity = Exclude<SxProps<Theme>, (...args: never[]) => unknown>;
+export const sx = of<SxProps<Theme>>;
 
-export const sx = of<SxEntity>;
-
-export type WithSx<T extends object> = { sx?: SxEntity } & T;
+export type Sx = { sx?: SxProps<Theme> };
 
 export function mergeStyles(
-  ...styles: (SxEntity | boolean | undefined)[]
-): SxEntity {
+  ...styles: (SxProps<Theme> | boolean | undefined)[]
+): SxProps<Theme> {
   return styles.flatMap((s) => {
     if (s) {
       return Array.isArray(s) ? s : [s];

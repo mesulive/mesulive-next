@@ -1,5 +1,6 @@
 import { MenuRounded } from "@mui/icons-material";
 import { IconButton, useTheme } from "@mui/material";
+import Link from "next/link";
 import Logo from "~/assets/images/logo.svg";
 import { Flex } from "~/components/UI/atoms/box";
 import { useNavigation } from "~/components/UI/organisms/navigation/store";
@@ -43,7 +44,9 @@ export const Header = () => {
       >
         <MenuRounded />
       </IconButton>
-      <Logo css={{ height: 32 }} />
+      <Link href={"/"}>
+        <Logo css={{ height: 32 }} />
+      </Link>
     </Flex>
   );
 };

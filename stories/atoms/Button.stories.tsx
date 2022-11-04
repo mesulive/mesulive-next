@@ -2,7 +2,7 @@ import { ButtonProps as MuiButtonProps, Stack } from "@mui/material";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { FC } from "react";
 import { MainButton, OptionButton } from "~/components/UI/atoms/button";
-import { WithSx } from "~/lib/style";
+import { Sx } from "~/lib/style";
 import { ButtonStory, ButtonStoryProps } from "~/stories/atoms/ButtonStory";
 
 const meta: ComponentMeta<typeof ButtonStory> = {
@@ -17,13 +17,12 @@ const Template = ({
   text = "버튼",
   sx,
   ...args
-}: WithSx<
-  ButtonStoryProps & {
+}: ButtonStoryProps &
+  Sx & {
     ButtonProps: {
       Component: FC<MuiButtonProps>;
     } & MuiButtonProps;
-  }
->) => {
+  }) => {
   const variants: MuiButtonProps["variant"][] = [
     "contained",
     "outlined",
