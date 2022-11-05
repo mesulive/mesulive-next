@@ -46,6 +46,9 @@ export const NavLink = ({
   const [top, setTop] = useState<number | undefined>(undefined);
   const setHoverBoxTop = useSetRecoilState(navigationStates.hoverBoxTopAtom);
   const setNavigationOpen = useSetRecoilState(navigationStates.openAtom);
+  const setHoverBoxTopAnimated = useSetRecoilState(
+    navigationStates.hoverBoxTopAnimatedAtom
+  );
 
   useEffect(() => {
     const offsetTop = ref.current?.offsetTop ?? 0;
@@ -104,7 +107,12 @@ export const NavLink = ({
         )}
         onMouseEnter={(e) => {
           if (["/", "/_error"].includes(route)) {
-            setHoverBoxTop(e.currentTarget.offsetTop);
+            setHoverBoxTopAnimated(false);
+            const offsetTop = e.currentTarget.offsetTop;
+            setTimeout(() => {
+              setHoverBoxTop(offsetTop);
+              setHoverBoxTopAnimated(true);
+            }, 0);
           }
         }}
         onClick={() => {
@@ -147,6 +155,7 @@ export const NavLink = ({
       children,
       externalLink,
       route,
+      setHoverBoxTopAnimated,
       setHoverBoxTop,
       screenType,
       setNavigationOpen,

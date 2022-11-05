@@ -14,3 +14,8 @@ export const hoverBoxFirstRenderedAtom = atom<boolean>({
   key: "navigation/hoverBoxFirstRenderedAtom",
   default: true,
 });
+
+export const hoverBoxTopAnimatedAtom = atom<boolean>({
+  key: "navigation/hoverBoxTopAnimatedAtom",
+  default: false,
+});
