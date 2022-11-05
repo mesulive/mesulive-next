@@ -201,7 +201,6 @@ const styles = {
       [`&.${NAVIGATION_LINK_SELECTED_CLASSNAME}`]: {
         [`& ~ .${NAVIGATION_LINK_HOVER_BOX_CLASSNAME}`]: {
           opacity: 1,
-          top: `${top} !important`,
         },
       },
 
