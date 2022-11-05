@@ -1,15 +1,20 @@
 import { Box } from "@mui/material";
-import { useRouter } from "next/router";
-import { useRecoilValue } from "recoil";
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { NAVIGATION_LINK_HOVER_BOX_CLASSNAME } from "~/components/UI/organisms/navigation/constant";
 import { navigationStates } from "~/components/UI/organisms/navigation/store";
 import { pxArray } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
 
 export const HoverBox = () => {
-  const { route } = useRouter();
   const top = useRecoilValue(navigationStates.hoverBoxTopAtom);
-  console.log(route);
+  const [firstRendered, setFirstRendered] = useRecoilState(
+    navigationStates.hoverBoxFirstRenderedAtom
+  );
+
+  useEffect(() => {
+    setTimeout(() => setFirstRendered(false), 0);
+  }, [setFirstRendered]);
 
   return (
     <Box
@@ -26,7 +31,7 @@ export const HoverBox = () => {
         top,
         transitionDuration: "0.2s",
         transitionTimingFunction: "ease-in-out",
-        transitionProperty: "opacity, top",
+        transitionProperty: `opacity${!firstRendered ? ", top" : ""}`,
       }}
       className={NAVIGATION_LINK_HOVER_BOX_CLASSNAME}
     />
