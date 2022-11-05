@@ -179,7 +179,7 @@ export const NavLink = ({
         pathname === href ? NAVIGATION_LINK_SELECTED_CLASSNAME : undefined
       }
     >
-      <Link href={href} ref={setRef}>
+      <Link href={href} ref={setRef} prefetch={false}>
         <UI />
       </Link>
     </Box>
