@@ -46,9 +46,6 @@ export const NavLink = ({
   const [top, setTop] = useState<number | undefined>(undefined);
   const setHoverBoxTop = useSetRecoilState(navigationStates.hoverBoxTopAtom);
   const setNavigationOpen = useSetRecoilState(navigationStates.openAtom);
-  const setHoverBoxTopAnimated = useSetRecoilState(
-    navigationStates.hoverBoxTopAnimatedAtom
-  );
 
   useEffect(() => {
     const offsetTop = ref.current?.offsetTop ?? 0;
@@ -74,11 +71,11 @@ export const NavLink = ({
             fill: COLORS.GRAY_2,
             [`.${NAVIGATION_LINK_INFO_BOX_CLASSNAME}`]: {
               backgroundColor: COLORS.GRAY_2,
-              transitionDuration: "0.2s",
+              transitionDuration: "0.3s",
               transitionTimingFunction: "ease-in-out",
               transitionProperty: "background-color",
             },
-            transitionDuration: "0.2s",
+            transitionDuration: "0.3s",
             transitionTimingFunction: "ease-in-out",
             transitionProperty: "color, fill",
 
@@ -107,12 +104,7 @@ export const NavLink = ({
         )}
         onMouseEnter={(e) => {
           if (["/", "/_error"].includes(route)) {
-            setHoverBoxTopAnimated(false);
-            const offsetTop = e.currentTarget.offsetTop;
-            setTimeout(() => {
-              setHoverBoxTop(offsetTop);
-              setHoverBoxTopAnimated(true);
-            }, 0);
+            setHoverBoxTop(e.currentTarget.offsetTop);
           }
         }}
         onClick={() => {
@@ -155,7 +147,6 @@ export const NavLink = ({
       children,
       externalLink,
       route,
-      setHoverBoxTopAnimated,
       setHoverBoxTop,
       screenType,
       setNavigationOpen,
@@ -194,13 +185,14 @@ const styles = {
       "&:hover": {
         [`& ~ .${NAVIGATION_LINK_HOVER_BOX_CLASSNAME}`]: {
           opacity: 1,
-          top: `${top} !important`,
+          top,
         },
       },
 
       [`&.${NAVIGATION_LINK_SELECTED_CLASSNAME}`]: {
         [`& ~ .${NAVIGATION_LINK_HOVER_BOX_CLASSNAME}`]: {
           opacity: 1,
+          top,
         },
       },
 

@@ -11,7 +11,6 @@ export const HoverBox = () => {
   const [firstRendered, setFirstRendered] = useRecoilState(
     navigationStates.hoverBoxFirstRenderedAtom
   );
-  const topAnimated = useRecoilValue(navigationStates.hoverBoxTopAnimatedAtom);
 
   useEffect(() => {
     setTimeout(() => setFirstRendered(false), 0);
@@ -32,9 +31,7 @@ export const HoverBox = () => {
         top,
         transitionDuration: "0.2s",
         transitionTimingFunction: "ease-in-out",
-        transitionProperty: `opacity${
-          !firstRendered && topAnimated ? ", top" : ""
-        }`,
+        transitionProperty: `opacity${!firstRendered ? ", top" : ""}`,
       }}
       className={NAVIGATION_LINK_HOVER_BOX_CLASSNAME}
     />
