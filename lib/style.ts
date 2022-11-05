@@ -1,3 +1,4 @@
+import { Interpolation } from "@emotion/styled";
 import { SxProps, Theme } from "@mui/material";
 import { Properties, Property } from "csstype";
 import { of } from "~/lib/types";
@@ -8,6 +9,8 @@ export const cssObject = of<Properties>;
 export const color = of<Property.Color>;
 
 export const sx = of<SxProps<Theme>>;
+
+export const css = of<Interpolation<Theme>>;
 
 export type Sx = { sx?: SxProps<Theme> };
 

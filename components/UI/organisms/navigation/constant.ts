@@ -1,27 +1,9 @@
-import { NavigationPath } from "~/components/UI/organisms/navigation/types";
-
 export const NAVIGATION_TOGGLE_DURATION = 225;
 
 export const NAVIGATION_WIDTH = 249;
 
-export const NAVIGATION_PATH: NavigationPath = {
-  calc: [
-    {
-      path: "cube",
-      externalLink: "https://cubemesu.co",
-    },
-    {
-      path: "flame",
-      disable: true,
-    },
-  ],
-  sim: [
-    {
-      path: "cube",
-      disable: true,
-    },
-    {
-      path: "starforce",
-    },
-  ],
-};
+export const NAVIGATION_LINK_SELECTED_CLASSNAME = "navigation-link-selected";
+
+export const NAVIGATION_LINK_HOVER_BOX_CLASSNAME = "navigation-link-hover-box";
+
+export const NAVIGATION_LINK_INFO_BOX_CLASSNAME = "navigation-link-info-box";
