@@ -15,7 +15,6 @@ export const parameters = {
 
 export const decorators = [
   (Story) => {
-    console.log(muiTheme);
     return (
       <MuiThemeProvider theme={muiTheme}>
         <EmotionThemeProvider theme={muiTheme}>
