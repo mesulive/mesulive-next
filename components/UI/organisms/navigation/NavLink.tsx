@@ -85,10 +85,10 @@ export const NavLink = ({
             }),
 
             ...(disabled && {
-              color: COLORS.GRAY_4,
-              fill: COLORS.GRAY_4,
+              color: COLORS.GRAY_5,
+              fill: COLORS.GRAY_5,
               [`.${NAVIGATION_LINK_INFO_BOX_CLASSNAME}`]: {
-                backgroundColor: COLORS.GRAY_4,
+                backgroundColor: COLORS.GRAY_5,
               },
             }),
 
