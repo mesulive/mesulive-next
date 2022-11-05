@@ -84,6 +84,12 @@
           "css"
         ]
       }
+    ],
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useRecoilCallback)"
+      }
     ]
   },
   "settings": {
