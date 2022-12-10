@@ -22,7 +22,7 @@ jobs:
           node-version: 18
 
       - name: Set yarn v3
-        run: yarn set version 3.x
+        run: yarn set version 3.2.4
 
       - name: Get yarn cache
         id: yarn-cache-dir-path
