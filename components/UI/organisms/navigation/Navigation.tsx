@@ -18,9 +18,9 @@ import {
 } from "~/components/UI/organisms/navigation/constant";
 import { HoverBox } from "~/components/UI/organisms/navigation/HoverBox";
 import { NavLink } from "~/components/UI/organisms/navigation/NavLink";
-import { navigationStates } from "~/components/UI/organisms/navigation/store";
 import { useRefCallback } from "~/lib/hooks/ref";
 import { useScreenType } from "~/lib/hooks/window";
+import { navigationStates } from "~/lib/navigation/store";
 import { pxArray, Sx } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
 import { ScreenType } from "~/styles/constants";

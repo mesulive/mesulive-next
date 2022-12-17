@@ -8,7 +8,7 @@ import {
   NAVIGATION_TOGGLE_DURATION,
   NAVIGATION_WIDTH,
 } from "~/components/UI/organisms/navigation/constant";
-import { navigationStates } from "~/components/UI/organisms/navigation/store";
+import { navigationStates } from "~/lib/navigation/store";
 import { COLORS } from "~/styles/colors";
 
 const Layout = ({ children }: PropsWithChildren) => {
