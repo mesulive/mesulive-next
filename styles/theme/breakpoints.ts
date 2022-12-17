@@ -1,5 +1,6 @@
 import { BreakpointsOptions } from "@mui/material";
-import { BREAKPOINTS, ScreenType } from "~/styles/constants";
+import { BREAKPOINTS } from "~/styles/constants";
+import { ScreenType } from "~/styles/utils";
 
 declare module "@mui/material/styles" {
   interface BreakpointOverrides {

@@ -55,8 +55,7 @@
       {
         "devDependencies": [
           "**/*.test.*",
-          "**/*.stories.*",
-          "**/*.config.*"
+          "**/*.stories.*"
         ]
       }
     ],
@@ -83,12 +82,6 @@
         "ignore": [
           "css"
         ]
-      }
-    ],
-    "react-hooks/exhaustive-deps": [
-      "warn",
-      {
-        "additionalHooks": "(useRecoilCallback)"
       }
     ]
   },

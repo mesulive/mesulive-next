@@ -1,6 +1,6 @@
 import { experimental_sx } from "@mui/material";
 import { COLORS } from "~/styles/colors";
-import { ThemeComponents } from "~/styles/theme/types";
+import { ThemeComponents } from "~/styles/types";
 
 export const MuiFormHelperText: ThemeComponents["MuiFormHelperText"] = {
   styleOverrides: {

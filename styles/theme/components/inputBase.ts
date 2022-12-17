@@ -1,5 +1,5 @@
 import { INPUT_PADDING } from "~/styles/constants";
-import { ThemeComponents } from "~/styles/theme/types";
+import { ThemeComponents } from "~/styles/types";
 
 export const MuiInputBase: ThemeComponents["MuiInputBase"] = {
   styleOverrides: {

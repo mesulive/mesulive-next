@@ -5,7 +5,6 @@ import { MuiFormControl } from "~/styles/theme/components/formControl";
 import { MuiFormControlLabel } from "~/styles/theme/components/formControlLabel";
 import { MuiFormGroup } from "~/styles/theme/components/formGroup";
 import { MuiFormHelperText } from "~/styles/theme/components/formHelperText";
-import { MuiIconButton } from "~/styles/theme/components/iconButton";
 import { MuiInputAdornment } from "~/styles/theme/components/inputAdornment";
 import { MuiInputBase } from "~/styles/theme/components/inputBase";
 import { MuiInputLabel } from "~/styles/theme/components/inputLabel";
@@ -20,7 +19,6 @@ export const components: ThemeOptions["components"] = {
   MuiFormControlLabel,
   MuiFormGroup,
   MuiFormHelperText,
-  MuiIconButton,
   MuiInputAdornment,
   MuiInputBase,
   MuiInputLabel,

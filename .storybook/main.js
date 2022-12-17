@@ -25,7 +25,7 @@ module.exports = {
 
       resolve.alias = {
         ...resolve.alias,
-        base: "/mesulive_next/",
+        base: "mesulive_ssr",
         "~": path.resolve(__dirname, ".."),
       };
     }

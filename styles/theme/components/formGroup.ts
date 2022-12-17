@@ -1,4 +1,4 @@
-import { ThemeComponents } from "~/styles/theme/types";
+import { ThemeComponents } from "~/styles/types";
 
 export const MuiFormGroup: ThemeComponents["MuiFormGroup"] = {
   styleOverrides: {

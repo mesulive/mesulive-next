@@ -1,4 +1,4 @@
-import { color } from "~/lib/style";
+import { color } from "~/styles/utils";
 
 export const COLORS = {
   BLACK: color("#241F1C"),
@@ -8,7 +8,6 @@ export const COLORS = {
   GRAY_4: color("#9B9B9B"),
   GRAY_5: color("#C5C5C5"),
   GRAY_6: color("#E0E0E0"),
-  BACKGROUND: color("#F8FAFB"),
 
   MAIN_DARK: color("#CC6708"),
   MAIN: color("#FF8009"),
