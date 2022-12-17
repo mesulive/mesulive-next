@@ -17,7 +17,7 @@ import {
   NAVIGATION_LINK_HOVER_BOX_CLASSNAME,
   NAVIGATION_LINK_INFO_BOX_CLASSNAME,
   NAVIGATION_LINK_SELECTED_CLASSNAME,
-  wrapper,
+  NavigationUtil,
 } from "~/components/UI/organisms/navigation/constant";
 import { useRefCallback } from "~/lib/hooks/ref";
 import { useScreenType } from "~/lib/hooks/window";
@@ -112,13 +112,10 @@ export const NavLink = ({
             setHoverBoxTop(e.currentTarget.offsetTop);
           }
           setHoverBoxMoveAnimated(true);
-          if (wrapper.timeoutId) {
-            clearTimeout(wrapper.timeoutId);
-            wrapper.timeoutId = undefined;
-          }
+          NavigationUtil.clear();
         }}
         onMouseLeave={() => {
-          wrapper.timeoutId = setTimeout(() => {
+          NavigationUtil.startTimeout(() => {
             setHoverBoxMoveAnimated(false);
           }, NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION);
         }}

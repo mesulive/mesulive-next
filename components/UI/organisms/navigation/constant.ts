@@ -10,6 +10,20 @@ export const NAVIGATION_LINK_INFO_BOX_CLASSNAME = "navigation-link-info-box";
 
 export const NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION = 200;
 
-export const wrapper: { timeoutId: NodeJS.Timeout | number | undefined } = {
-  timeoutId: undefined,
-};
+export class NavigationUtilClass {
+  private timeoutId: NodeJS.Timeout | number | undefined = undefined;
+
+  public clear = () => {
+    clearTimeout(this.timeoutId);
+    this.timeoutId = undefined;
+  };
+
+  public startTimeout = (callback: () => void, duration: number) => {
+    if (this.timeoutId) {
+      this.clear();
+    }
+    this.timeoutId = setTimeout(callback, duration);
+  };
+}
+
+export const NavigationUtil = new NavigationUtilClass();
