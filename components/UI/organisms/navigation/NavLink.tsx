@@ -13,13 +13,15 @@ import {
 import { useSetRecoilState } from "recoil";
 import { Flex } from "~/components/UI/atoms/box";
 import {
+  NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION,
   NAVIGATION_LINK_HOVER_BOX_CLASSNAME,
   NAVIGATION_LINK_INFO_BOX_CLASSNAME,
   NAVIGATION_LINK_SELECTED_CLASSNAME,
+  NavigationUtil,
 } from "~/components/UI/organisms/navigation/constant";
-import { navigationStates } from "~/components/UI/organisms/navigation/store";
 import { useRefCallback } from "~/lib/hooks/ref";
 import { useScreenType } from "~/lib/hooks/window";
+import { navigationStates } from "~/lib/navigation/store";
 import { mergeStyles, pxArray, sx, Sx } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
 import { ScreenType } from "~/styles/constants";
@@ -45,6 +47,9 @@ export const NavLink = ({
   const [ref, setRef] = useRefCallback<HTMLAnchorElement>();
   const [top, setTop] = useState<number | undefined>(undefined);
   const setHoverBoxTop = useSetRecoilState(navigationStates.hoverBoxTopAtom);
+  const setHoverBoxMoveAnimated = useSetRecoilState(
+    navigationStates.hoverBoxMoveAnimatedAtom
+  );
   const setNavigationOpen = useSetRecoilState(navigationStates.openAtom);
 
   useEffect(() => {
@@ -106,6 +111,13 @@ export const NavLink = ({
           if (["/", "/_error"].includes(route)) {
             setHoverBoxTop(e.currentTarget.offsetTop);
           }
+          setHoverBoxMoveAnimated(true);
+          NavigationUtil.clearTimeout();
+        }}
+        onMouseLeave={() => {
+          NavigationUtil.startTimeout(() => {
+            setHoverBoxMoveAnimated(false);
+          }, NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION);
         }}
         onClick={() => {
           if (screenType <= ScreenType.mobile) {
@@ -147,6 +159,7 @@ export const NavLink = ({
       children,
       externalLink,
       route,
+      setHoverBoxMoveAnimated,
       setHoverBoxTop,
       screenType,
       setNavigationOpen,

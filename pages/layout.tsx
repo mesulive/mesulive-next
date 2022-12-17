@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { PropsWithChildren, useMemo } from "react";
+import { PropsWithChildren } from "react";
 import { useRecoilValue } from "recoil";
 import { Header } from "~/components/UI/organisms/header";
 import { HEADER_HEIGHT } from "~/components/UI/organisms/header/constant";
@@ -8,39 +8,34 @@ import {
   NAVIGATION_TOGGLE_DURATION,
   NAVIGATION_WIDTH,
 } from "~/components/UI/organisms/navigation/constant";
-import { navigationStates } from "~/components/UI/organisms/navigation/store";
-import { useScreenType } from "~/lib/hooks/window";
+import { navigationStates } from "~/lib/navigation/store";
 import { COLORS } from "~/styles/colors";
-import { ScreenType } from "~/styles/constants";
 
 const Layout = ({ children }: PropsWithChildren) => {
-  const screenType = useScreenType();
   const navigationOpen = useRecoilValue(navigationStates.openAtom);
-
-  const marginLeftExists = useMemo(
-    () =>
-      (() => {
-        if (screenType <= ScreenType.mobile) return false;
-        if (screenType >= ScreenType.desktop) return true;
-        return navigationOpen;
-      })(),
-    [navigationOpen, screenType]
-  );
 
   return (
     <>
       <Header />
       <Navigation />
       <Box
-        sx={{
+        sx={(theme) => ({
           backgroundColor: COLORS.BACKGROUND,
           mt: HEADER_HEIGHT,
-          transition: `margin-left ${NAVIGATION_TOGGLE_DURATION}ms cubic-bezier(0, 0, 0.2, 1) 0ms`, // Drawer transition strategy
+          transition: `margin-left ${
+            NAVIGATION_TOGGLE_DURATION * 1.1
+          }ms cubic-bezier(0, 0, 0.2, 1) 0ms`, // Drawer transition strategy
 
-          ...(marginLeftExists && {
+          [theme.breakpoints.up("desktop")]: {
             ml: NAVIGATION_WIDTH,
-          }),
-        }}
+          },
+
+          [theme.breakpoints.between("tablet", "desktop")]: {
+            ...(navigationOpen && {
+              ml: NAVIGATION_WIDTH,
+            }),
+          },
+        })}
       >
         {children}
       </Box>
