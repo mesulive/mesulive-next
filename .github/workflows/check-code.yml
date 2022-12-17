@@ -28,17 +28,16 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Restore cached dependencies
-        id: yarn-cache
+        id: node-cache
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-modules-
 
-      - if: steps.yarn-cache.outputs.cache-hit != 'true'
-        name: Install dependencies
-
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: yarn
 
       - name: Check eslint
@@ -63,16 +62,16 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Restore cached dependencies
-        id: yarn-cache
+        id: node-cache
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-modules-
 
-      - if: steps.cache-npm.outputs.cache-hit != 'true'
-        name: Install dependencies
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: yarn
 
       - name: Check typescript
@@ -97,16 +96,16 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Restore cached dependencies
-        id: yarn-cache
+        id: node-cache
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-modules-
 
-      - if: steps.cache-npm.outputs.cache-hit != 'true'
-        name: Install dependencies
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: yarn
 
       - name: Run test
