@@ -1,6 +1,7 @@
 import { theme as muiTheme } from "../styles/theme";
 import { ThemeProvider as MuiThemeProvider } from "@mui/material";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
+import { RecoilRoot } from "recoil";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -14,11 +15,12 @@ export const parameters = {
 
 export const decorators = [
   (Story) => {
-    console.log(muiTheme);
     return (
       <MuiThemeProvider theme={muiTheme}>
         <EmotionThemeProvider theme={muiTheme}>
-          <Story />
+          <RecoilRoot>
+            <Story />
+          </RecoilRoot>
         </EmotionThemeProvider>
       </MuiThemeProvider>
     );

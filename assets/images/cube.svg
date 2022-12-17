@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<svg id="Icons" style="enable-background:new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style type="text/css">
+    .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+  </style>
+  <g>
+    <path d="m 16 15.8 l 12.3 -7.1 l -12.3 -7.1 l -12.3 7.1 l 12.3 7.1 z"/>
+    <path d="M 15 17.6 l -12 -6.9 v 13 l 12 6.9 v -13 z"/>
+    <path d="M 17 17.6 v 13 l 12 -6.9 v -13 l -12 6.9 z"/>
+  </g>
+</svg>

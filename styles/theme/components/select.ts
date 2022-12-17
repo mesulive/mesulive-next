@@ -1,8 +1,8 @@
 import { Fade } from "@mui/material";
 import Color from "color";
+import { pxArray } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
-import { ThemeComponents } from "~/styles/types";
-import { pxArray } from "~/styles/utils";
+import { ThemeComponents } from "~/styles/theme/types";
 
 const ITEM_HEIGHT = 48;
 

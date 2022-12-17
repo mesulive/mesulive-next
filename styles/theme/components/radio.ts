@@ -1,5 +1,5 @@
 import { COLORS } from "~/styles/colors";
-import { ThemeComponents } from "~/styles/types";
+import { ThemeComponents } from "~/styles/theme/types";
 
 export const MuiRadio: ThemeComponents["MuiRadio"] = {
   styleOverrides: {
