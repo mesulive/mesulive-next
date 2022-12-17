@@ -1,6 +1,6 @@
 export const NAVIGATION_TOGGLE_DURATION = 225;
 
-export const NAVIGATION_WIDTH = 249;
+export const NAVIGATION_WIDTH = 265;
 
 export const NAVIGATION_LINK_SELECTED_CLASSNAME = "navigation-link-selected";
 

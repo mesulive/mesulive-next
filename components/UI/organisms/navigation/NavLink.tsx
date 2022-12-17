@@ -69,7 +69,7 @@ export const NavLink = ({
         sx={mergeStyles(
           {
             boxSizing: "border-box",
-            width: 216,
+            width: 232,
             height: 40,
             p: pxArray(10, 16),
             color: COLORS.GRAY_2,
