@@ -1,21 +1,21 @@
 import { Box } from "@mui/material";
-import { useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { NAVIGATION_LINK_HOVER_BOX_CLASSNAME } from "~/components/UI/organisms/navigation/constant";
-import { navigationStates } from "~/components/UI/organisms/navigation/store";
+import { useRouter } from "next/router";
+import { useRecoilValue } from "recoil";
+import {
+  NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION,
+  NAVIGATION_LINK_HOVER_BOX_CLASSNAME,
+} from "~/components/UI/organisms/navigation/constant";
+import { navigationStates } from "~/lib/navigation/store";
 import { pxArray } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
 
 export const HoverBox = () => {
-  const top = useRecoilValue(navigationStates.hoverBoxTopAtom);
-  const [firstRendered, setFirstRendered] = useRecoilState(
-    navigationStates.hoverBoxFirstRenderedAtom
-  );
-  const topAnimated = useRecoilValue(navigationStates.hoverBoxTopAnimatedAtom);
+  const { route } = useRouter();
 
-  useEffect(() => {
-    setTimeout(() => setFirstRendered(false), 0);
-  }, [setFirstRendered]);
+  const top = useRecoilValue(navigationStates.hoverBoxTopAtom);
+  const moveAnimated = useRecoilValue(
+    navigationStates.hoverBoxMoveAnimatedAtom
+  );
 
   return (
     <Box
@@ -30,10 +30,10 @@ export const HoverBox = () => {
         zIndex: -1,
         opacity: 0,
         top,
-        transitionDuration: "0.2s",
+        transitionDuration: `${NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION}ms`,
         transitionTimingFunction: "ease-in-out",
         transitionProperty: `opacity${
-          !firstRendered && topAnimated ? ", top" : ""
+          moveAnimated || !["/", "/_error"].includes(route) ? ", top" : ""
         }`,
       }}
       className={NAVIGATION_LINK_HOVER_BOX_CLASSNAME}

@@ -13,13 +13,15 @@ import {
 import { useSetRecoilState } from "recoil";
 import { Flex } from "~/components/UI/atoms/box";
 import {
+  NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION,
   NAVIGATION_LINK_HOVER_BOX_CLASSNAME,
   NAVIGATION_LINK_INFO_BOX_CLASSNAME,
   NAVIGATION_LINK_SELECTED_CLASSNAME,
+  NavigationUtil,
 } from "~/components/UI/organisms/navigation/constant";
-import { navigationStates } from "~/components/UI/organisms/navigation/store";
 import { useRefCallback } from "~/lib/hooks/ref";
 import { useScreenType } from "~/lib/hooks/window";
+import { navigationStates } from "~/lib/navigation/store";
 import { mergeStyles, pxArray, sx, Sx } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
 import { ScreenType } from "~/styles/constants";
@@ -45,10 +47,10 @@ export const NavLink = ({
   const [ref, setRef] = useRefCallback<HTMLAnchorElement>();
   const [top, setTop] = useState<number | undefined>(undefined);
   const setHoverBoxTop = useSetRecoilState(navigationStates.hoverBoxTopAtom);
-  const setNavigationOpen = useSetRecoilState(navigationStates.openAtom);
-  const setHoverBoxTopAnimated = useSetRecoilState(
-    navigationStates.hoverBoxTopAnimatedAtom
+  const setHoverBoxMoveAnimated = useSetRecoilState(
+    navigationStates.hoverBoxMoveAnimatedAtom
   );
+  const setNavigationOpen = useSetRecoilState(navigationStates.openAtom);
 
   useEffect(() => {
     const offsetTop = ref.current?.offsetTop ?? 0;
@@ -74,11 +76,11 @@ export const NavLink = ({
             fill: COLORS.GRAY_2,
             [`.${NAVIGATION_LINK_INFO_BOX_CLASSNAME}`]: {
               backgroundColor: COLORS.GRAY_2,
-              transitionDuration: "0.2s",
+              transitionDuration: "0.3s",
               transitionTimingFunction: "ease-in-out",
               transitionProperty: "background-color",
             },
-            transitionDuration: "0.2s",
+            transitionDuration: "0.3s",
             transitionTimingFunction: "ease-in-out",
             transitionProperty: "color, fill",
 
@@ -88,10 +90,10 @@ export const NavLink = ({
             }),
 
             ...(disabled && {
-              color: COLORS.GRAY_4,
-              fill: COLORS.GRAY_4,
+              color: COLORS.GRAY_5,
+              fill: COLORS.GRAY_5,
               [`.${NAVIGATION_LINK_INFO_BOX_CLASSNAME}`]: {
-                backgroundColor: COLORS.GRAY_4,
+                backgroundColor: COLORS.GRAY_5,
               },
             }),
 
@@ -107,13 +109,15 @@ export const NavLink = ({
         )}
         onMouseEnter={(e) => {
           if (["/", "/_error"].includes(route)) {
-            setHoverBoxTopAnimated(false);
-            const offsetTop = e.currentTarget.offsetTop;
-            setTimeout(() => {
-              setHoverBoxTop(offsetTop);
-              setHoverBoxTopAnimated(true);
-            }, 0);
+            setHoverBoxTop(e.currentTarget.offsetTop);
           }
+          setHoverBoxMoveAnimated(true);
+          NavigationUtil.clearTimeout();
+        }}
+        onMouseLeave={() => {
+          NavigationUtil.startTimeout(() => {
+            setHoverBoxMoveAnimated(false);
+          }, NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION);
         }}
         onClick={() => {
           if (screenType <= ScreenType.mobile) {
@@ -155,7 +159,7 @@ export const NavLink = ({
       children,
       externalLink,
       route,
-      setHoverBoxTopAnimated,
+      setHoverBoxMoveAnimated,
       setHoverBoxTop,
       screenType,
       setNavigationOpen,
@@ -179,7 +183,7 @@ export const NavLink = ({
         pathname === href ? NAVIGATION_LINK_SELECTED_CLASSNAME : undefined
       }
     >
-      <Link href={href} ref={setRef}>
+      <Link href={href} ref={setRef} prefetch={false}>
         <UI />
       </Link>
     </Box>

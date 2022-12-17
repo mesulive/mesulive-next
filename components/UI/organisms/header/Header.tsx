@@ -3,7 +3,7 @@ import { IconButton, useTheme } from "@mui/material";
 import Link from "next/link";
 import Logo from "~/assets/images/logo.svg";
 import { Flex } from "~/components/UI/atoms/box";
-import { useNavigation } from "~/components/UI/organisms/navigation/store";
+import { useNavigation } from "~/lib/navigation/store";
 import { pxArray } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
 
@@ -44,7 +44,7 @@ export const Header = () => {
       >
         <MenuRounded />
       </IconButton>
-      <Link href={"/"}>
+      <Link href={"/"} css={{ height: 32 }}>
         <Logo css={{ height: 32 }} />
       </Link>
     </Flex>
