@@ -109,7 +109,16 @@ export const Navigation = () => {
 
   return (
     <>
-      <NavigationDrawer ref={setFirstDrawerRef} open variant={"permanent"} />
+      <NavigationDrawer
+        ref={setFirstDrawerRef}
+        open
+        variant={"permanent"}
+        sx={(theme) => ({
+          [theme.breakpoints.down("desktop")]: {
+            display: "none",
+          },
+        })}
+      />
       {screenType >= ScreenType.tablet && (
         <NavigationDrawer
           variant={"persistent"}

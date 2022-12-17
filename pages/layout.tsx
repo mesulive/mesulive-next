@@ -25,16 +25,15 @@ const Layout = ({ children }: PropsWithChildren) => {
           transition: `margin-left ${
             NAVIGATION_TOGGLE_DURATION * 1.1
           }ms cubic-bezier(0, 0, 0.2, 1) 0ms`, // Drawer transition strategy
-          ...(navigationOpen && {
-            ml: NAVIGATION_WIDTH,
-          }),
 
           [theme.breakpoints.up("desktop")]: {
             ml: NAVIGATION_WIDTH,
           },
 
-          [theme.breakpoints.down("tablet")]: {
-            ml: undefined,
+          [theme.breakpoints.between("tablet", "desktop")]: {
+            ...(navigationOpen && {
+              ml: NAVIGATION_WIDTH,
+            }),
           },
         })}
       >
