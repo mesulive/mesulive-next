@@ -112,7 +112,7 @@ export const NavLink = ({
             setHoverBoxTop(e.currentTarget.offsetTop);
           }
           setHoverBoxMoveAnimated(true);
-          NavigationUtil.clear();
+          NavigationUtil.clearTimeout();
         }}
         onMouseLeave={() => {
           NavigationUtil.startTimeout(() => {

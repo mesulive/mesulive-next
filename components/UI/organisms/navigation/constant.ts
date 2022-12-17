@@ -13,14 +13,14 @@ export const NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION = 200;
 export class NavigationUtilClass {
   private timeoutId: NodeJS.Timeout | number | undefined = undefined;
 
-  public clear = () => {
+  public clearTimeout = () => {
     clearTimeout(this.timeoutId);
     this.timeoutId = undefined;
   };
 
   public startTimeout = (callback: () => void, duration: number) => {
     if (this.timeoutId) {
-      this.clear();
+      this.clearTimeout();
     }
     this.timeoutId = setTimeout(callback, duration);
   };
