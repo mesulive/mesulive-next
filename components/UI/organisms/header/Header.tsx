@@ -2,7 +2,7 @@ import { MenuRounded } from "@mui/icons-material";
 import { IconButton, useTheme } from "@mui/material";
 import Link from "next/link";
 import Logo from "~/assets/images/logo.svg";
-import { Flex } from "~/components/UI/atoms/box";
+import { Flex } from "~/components/UI/templates/box";
 import { useNavigation } from "~/lib/navigation/store";
 import { pxArray } from "~/lib/style";
 import { COLORS } from "~/styles/colors";
@@ -19,7 +19,7 @@ export const Header = () => {
       sx={{
         p: 16,
         height: 32,
-        borderBottom: `solid 1px ${COLORS.GRAY_6}`,
+        borderBottom: `solid 1px ${COLORS.GRAY_7}`,
         boxSizing: "content-box",
         backgroundColor: "white",
         position: "fixed",

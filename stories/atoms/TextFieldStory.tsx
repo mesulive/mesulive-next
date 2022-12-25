@@ -13,7 +13,7 @@ export interface TextFieldStoryProps {
 export const TextFieldStory = ({
   value,
   label,
-  helperText,
+  helperText = "\u00a0",
   startAdornment = "상위",
   endAdornment = "메소",
   error,

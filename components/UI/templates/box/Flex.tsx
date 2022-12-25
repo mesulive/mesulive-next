@@ -2,13 +2,21 @@ import { Box, BoxProps } from "@mui/material";
 import { Property } from "csstype";
 import { mergeStyles, Sx } from "~/lib/style";
 
-interface Props extends BoxProps, Sx {
+export interface FlexProps extends BoxProps, Sx {
   direction?: Property.FlexDirection;
   align?: Property.AlignItems;
   justify?: Property.JustifyContent;
+  gap?: Property.Gap | number;
 }
 
-export const Flex = ({ direction, align, justify, sx, ...props }: Props) => {
+export const Flex = ({
+  direction = "column",
+  align,
+  justify,
+  gap,
+  sx,
+  ...props
+}: FlexProps) => {
   return (
     <Box
       sx={mergeStyles(
@@ -17,6 +25,7 @@ export const Flex = ({ direction, align, justify, sx, ...props }: Props) => {
           flexDirection: direction,
           alignItems: align,
           justifyContent: justify,
+          gap,
         },
         sx
       )}

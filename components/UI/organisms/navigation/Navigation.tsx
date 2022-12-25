@@ -51,7 +51,7 @@ const NavigationDrawer = forwardRef<HTMLDivElement, NavigationDrawerProps>(
           sx: {
             p: pxArray(32, 16),
             zIndex: 20,
-            borderRightColor: COLORS.GRAY_6,
+            borderRightColor: COLORS.GRAY_7,
             width: NAVIGATION_WIDTH,
 
             [theme.breakpoints.up("tablet")]: {

@@ -8,6 +8,7 @@ export const COLORS = {
   GRAY_4: color("#9B9B9B"),
   GRAY_5: color("#C5C5C5"),
   GRAY_6: color("#E0E0E0"),
+  GRAY_7: color("#F0F0F0"),
   BACKGROUND: color("#F8FAFB"),
 
   MAIN_DARK: color("#CC6708"),

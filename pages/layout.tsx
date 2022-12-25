@@ -22,9 +22,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         sx={(theme) => ({
           backgroundColor: COLORS.BACKGROUND,
           mt: HEADER_HEIGHT,
-          transition: `margin-left ${
-            NAVIGATION_TOGGLE_DURATION * 1.1
-          }ms cubic-bezier(0, 0, 0.2, 1) 0ms`, // Drawer transition strategy
+          transition: `margin-left ${NAVIGATION_TOGGLE_DURATION}ms cubic-bezier(0, 0, 0.2, 1) 0ms`, // Drawer transition strategy
 
           [theme.breakpoints.up("desktop")]: {
             ml: NAVIGATION_WIDTH,

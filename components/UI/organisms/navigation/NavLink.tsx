@@ -11,7 +11,6 @@ import {
   useState,
 } from "react";
 import { useSetRecoilState } from "recoil";
-import { Flex } from "~/components/UI/atoms/box";
 import {
   NAVIGATION_LINK_HOVER_BOX_ANIMATION_DURATION,
   NAVIGATION_LINK_HOVER_BOX_CLASSNAME,
@@ -19,6 +18,7 @@ import {
   NAVIGATION_LINK_SELECTED_CLASSNAME,
   NavigationUtil,
 } from "~/components/UI/organisms/navigation/constant";
+import { Flex } from "~/components/UI/templates/box";
 import { useRefCallback } from "~/lib/hooks/ref";
 import { useScreenType } from "~/lib/hooks/window";
 import { navigationStates } from "~/lib/navigation/store";
