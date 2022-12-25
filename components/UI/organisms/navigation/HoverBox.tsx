@@ -21,7 +21,7 @@ export const HoverBox = () => {
     <Box
       sx={{
         boxSizing: "border-box",
-        width: 216,
+        width: 232,
         height: 40,
         p: pxArray(10, 16),
         backgroundColor: COLORS.MAIN_LIGHTER,
