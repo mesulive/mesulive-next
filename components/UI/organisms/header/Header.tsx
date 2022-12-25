@@ -14,6 +14,7 @@ export const Header = () => {
 
   return (
     <Flex
+      direction="row"
       component="header"
       align="center"
       sx={{
