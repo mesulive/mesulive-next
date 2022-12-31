@@ -63,9 +63,9 @@ export const NavLink = ({
   const UI = useCallback(
     () => (
       <Flex
-        direction={"row"}
-        align={"center"}
-        justify={"space-between"}
+        direction="row"
+        align="center"
+        justify="space-between"
         sx={mergeStyles(
           {
             boxSizing: "border-box",
@@ -125,7 +125,7 @@ export const NavLink = ({
           }
         }}
       >
-        <Flex direction={"row"} align={"center"}>
+        <Flex direction="row" align="center">
           {Icon && <Icon css={{ width: 20, height: 20, marginRight: 8 }} />}
           <Typography sx={{ fontWeight: "bold", fontSize: 14 }}>
             {children}
@@ -133,8 +133,8 @@ export const NavLink = ({
         </Flex>
         {(disabled || externalLink) && (
           <Flex
-            align={"center"}
-            justify={"center"}
+            align="center"
+            justify="center"
             sx={{
               p: pxArray(0, 4),
               height: 20,
@@ -169,7 +169,7 @@ export const NavLink = ({
   if (externalLink !== undefined) {
     return (
       <Box sx={mergeStyles(styles.link(top, disabled), sxProp)}>
-        <a href={externalLink} ref={setRef} target={"_blank"} rel="noreferrer">
+        <a href={externalLink} ref={setRef} target="_blank" rel="noreferrer">
           <UI />
         </a>
       </Box>
