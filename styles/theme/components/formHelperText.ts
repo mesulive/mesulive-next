@@ -20,4 +20,7 @@ export const MuiFormHelperText: ThemeComponents["MuiFormHelperText"] = {
         },
       }),
   },
+  defaultProps: {
+    children: "\u00a0",
+  },
 };

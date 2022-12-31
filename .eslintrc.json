@@ -9,7 +9,8 @@
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   "overrides": [
     {
@@ -75,6 +76,13 @@
         "custom": "ignore"
       }
     ],
+    "react/jsx-curly-brace-presence": [
+      1,
+      {
+        "props": "never",
+        "children": "never"
+      }
+    ],
     "react/prop-types": "off",
     "react/require-default-props": "off",
     "react/no-unknown-property": [
@@ -90,7 +98,8 @@
       {
         "additionalHooks": "(useRecoilCallback)"
       }
-    ]
+    ],
+    "@typescript-eslint/no-namespace": "off"
   },
   "settings": {
     "import/resolver": {

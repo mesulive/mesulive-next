@@ -22,7 +22,7 @@ export const MuiSelect: ThemeComponents["MuiSelect"] = {
           boxShadow: "0px 2px 10px #C5C5C580",
           borderRadius: "10px",
           p: 8,
-          maxHeight: ITEM_HEIGHT * 4.75,
+          maxHeight: ITEM_HEIGHT * 8.75,
           boxSizing: "border-box",
         },
       },
@@ -33,7 +33,8 @@ export const MuiSelect: ThemeComponents["MuiSelect"] = {
           "& .MuiMenuItem-root": {
             boxSizing: "border-box",
             height: ITEM_HEIGHT,
-            p: pxArray(0, 12),
+            p: pxArray(0, 8, 0, 12),
+            m: pxArray(4, 0),
             borderRadius: "10px",
             color: COLORS.GRAY_2,
             transition: "all 0.1s ease-in",
@@ -53,6 +54,10 @@ export const MuiSelect: ThemeComponents["MuiSelect"] = {
             "& .MuiTouchRipple-root": {
               color: COLORS.MAIN,
               opacity: 0.5,
+            },
+
+            "&.Mui-focusVisible": {
+              backgroundColor: "unset",
             },
           },
         },

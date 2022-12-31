@@ -1,10 +1,16 @@
-import { styled, Typography } from "@mui/material";
+import { styled, Typography, TypographyProps } from "@mui/material";
 import { COLORS } from "~/styles/colors";
 
-export const PageTitle = styled(Typography)(({ theme }) => ({
+export const PageTitle = styled((props: TypographyProps<"h1">) => (
+  <Typography component="h1" {...props} />
+))(({ theme }) => ({
+  display: "inline",
   fontSize: 23,
   fontWeight: 700,
-  color: COLORS.GRAY_3,
+  color: COLORS.MAIN,
+  background: `linear-gradient(to right, ${COLORS.MAIN}, ${COLORS.SECONDARY})`,
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
 
   [theme.breakpoints.up("laptop")]: {
     fontSize: 28,
