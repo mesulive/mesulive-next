@@ -41,6 +41,18 @@ export namespace FlameState {
     default: undefined,
   });
 
+  export const aimStatErrorSelector = selector<string>({
+    key: "flame/aimStatInvalidSelector",
+    get: ({ get }) => {
+      const aimStat = get(aimStatAtom);
+
+      if (!aimStat) return "";
+      if (aimStat < 1) return "1 이상의 수치를 입력해주세요.";
+
+      return "";
+    },
+  });
+
   export const bossDropAtom = atom<boolean>({
     key: "flame/bossDrop",
     default: false,

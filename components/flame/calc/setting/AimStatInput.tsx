@@ -7,9 +7,9 @@ import { EMPTY_TEXT } from "~/lib/constants";
 import { FlameState } from "~/lib/flame/store/states";
 import { FlowMachineState } from "~/lib/flow/machine";
 
-export const EquipLevelInput = () => {
-  const [equipLevel, setEquipLevel] = useRecoilState(FlameState.equipLevelAtom);
-  const equipLevelError = useRecoilValue(FlameState.equipLevelErrorSelector);
+export const AimStatInput = () => {
+  const [aimStat, setAimStat] = useRecoilState(FlameState.aimStatAtom);
+  const aimStatError = useRecoilValue(FlameState.aimStatErrorSelector);
 
   const inputUnfilledState = useSelector(
     useContext(FlowContext).service,
@@ -17,25 +17,21 @@ export const EquipLevelInput = () => {
   );
 
   const inputUnfilled = useMemo(
-    () => inputUnfilledState && equipLevel === undefined,
-    [equipLevel, inputUnfilledState]
+    () => inputUnfilledState && aimStat === undefined,
+    [aimStat, inputUnfilledState]
   );
 
   return (
     <NumberTextField
-      label="장비 레벨"
-      value={String(equipLevel || "")}
+      value={String(aimStat ?? "")}
       onChange={({ target: { value } }) => {
-        if (value === "") {
-          setEquipLevel(undefined);
-          return;
-        }
-        setEquipLevel(parseInt(value, 10));
+        setAimStat(value ? Number(value) : undefined);
       }}
-      error={!!equipLevelError || inputUnfilled}
+      label="목표 환산 스탯"
+      error={!!aimStatError || inputUnfilled}
       helperText={
-        equipLevelError ||
-        (inputUnfilled && "장비 레벨을 입력해주세요") ||
+        aimStatError ||
+        (inputUnfilled && "목표 환산 스탯을 입력해주세요") ||
         EMPTY_TEXT
       }
     />

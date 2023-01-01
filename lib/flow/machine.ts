@@ -1,18 +1,27 @@
 import { createMachine } from "xstate";
+import { z } from "zod";
 
 type SUBMIT = { type: "SUBMIT"; invalid?: boolean; needLoading?: boolean };
 type FINISH_CALC = { type: "FINISH_CALC" };
 
 export type FlowMachineEvent = SUBMIT | FINISH_CALC;
 
+export const FlowMachineState = z.enum([
+  "idle",
+  "inputUnfilled",
+  "calculating",
+  "hasResult",
+]);
+
+export type FlowMachineState = z.infer<typeof FlowMachineState>;
+
 export interface FlowMachineContext {}
 
 export const flowMachine = createMachine<FlowMachineContext, FlowMachineEvent>({
   id: "console",
   initial: "idle",
-  context: {},
   states: {
-    idle: {
+    [FlowMachineState.enum.idle]: {
       on: {
         SUBMIT: [
           {
@@ -29,7 +38,7 @@ export const flowMachine = createMachine<FlowMachineContext, FlowMachineEvent>({
         ],
       },
     },
-    inputUnfilled: {
+    [FlowMachineState.enum.inputUnfilled]: {
       on: {
         SUBMIT: [
           {
@@ -46,14 +55,14 @@ export const flowMachine = createMachine<FlowMachineContext, FlowMachineEvent>({
         ],
       },
     },
-    calculating: {
+    [FlowMachineState.enum.calculating]: {
       on: {
         FINISH_CALC: {
           target: "hasResult",
         },
       },
     },
-    hasResult: {
+    [FlowMachineState.enum.hasResult]: {
       on: {
         SUBMIT: [
           {

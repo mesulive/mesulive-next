@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {
+  NumberTextFieldStory,
   TextFieldStory,
-  TextFieldStoryProps,
 } from "~/stories/atoms/TextFieldStory";
 
 export default {
@@ -9,8 +9,10 @@ export default {
   component: TextFieldStory,
 } as ComponentMeta<typeof TextFieldStory>;
 
-const Template = (props: TextFieldStoryProps) => <TextFieldStory {...props} />;
-
 export const Default: ComponentStory<typeof TextFieldStory> = (props) => (
-  <Template {...props} />
+  <TextFieldStory {...props} />
+);
+
+export const Number: ComponentStory<typeof TextFieldStory> = (props) => (
+  <NumberTextFieldStory {...props} />
 );

@@ -13,6 +13,7 @@ import { useRecoilState } from "recoil";
 import { FlowContext } from "~/components/common/context/FlowProvider";
 import { FlameState } from "~/lib/flame/store/states";
 import { Flame } from "~/lib/flame/types";
+import { FlowMachineState } from "~/lib/flow/machine";
 import { values } from "~/lib/object";
 import { COLORS } from "~/styles/colors";
 
@@ -23,7 +24,7 @@ export const MethodSelect = () => {
 
   const inputUnfilledState = useSelector(
     useContext(FlowContext).service,
-    (state) => state.matches("inputUnfilled")
+    (state) => state.matches(FlowMachineState.enum.inputUnfilled)
   );
 
   const inputUnfilled = useMemo(

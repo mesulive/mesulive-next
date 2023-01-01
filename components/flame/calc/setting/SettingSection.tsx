@@ -1,4 +1,6 @@
 import { Box } from "@mui/material";
+import { AimStatInput } from "~/components/flame/calc/setting/AimStatInput";
+import { BossDropCheckbox } from "~/components/flame/calc/setting/BossDropCheckbox";
 import { EquipLevelInput } from "~/components/flame/calc/setting/EquipLevelInput";
 import { EquipTypeSelect } from "~/components/flame/calc/setting/EquipTypeSelect";
 import { MethodSelect } from "~/components/flame/calc/setting/MethodSelect";
@@ -16,6 +18,8 @@ export const SettingSection = () => {
         <WeaponTypeSelect />
         <MethodSelect />
         <EquipLevelInput />
+        <AimStatInput />
+        <BossDropCheckbox sx={{ mb: 20 }} />
       </Box>
     </SectionBox>
   );
