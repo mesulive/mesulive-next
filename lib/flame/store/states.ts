@@ -35,4 +35,21 @@ export namespace FlameState {
       return "";
     },
   });
+
+  export const aimStatAtom = atom<number | undefined>({
+    key: "flame/aimStatAtom",
+    default: undefined,
+  });
+
+  export const bossDropAtom = atom<boolean>({
+    key: "flame/bossDrop",
+    default: false,
+  });
+
+  export const inputUnfilledSelector = selector<boolean>({
+    key: "flame/inputUnfilledSelector",
+    get: ({ get }) =>
+      [methodsAtom].some((atom) => !get(atom).length) ||
+      [equipLevelAtom, aimStatAtom].some((atom) => get(atom) === undefined),
+  });
 }

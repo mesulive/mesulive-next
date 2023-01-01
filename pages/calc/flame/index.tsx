@@ -1,5 +1,8 @@
 import { Box } from "@mui/material";
-import { GlobalProvider } from "~/components/common/context/GlobalProvider";
+import { FlowProvider } from "~/components/common/context/FlowProvider";
+import { MultiProvider } from "~/components/common/context/MultiProvider";
+import { PageProvider } from "~/components/common/context/PageProvider";
+import { CalcButton } from "~/components/flame/calc/CalcButton";
 import { SettingSection } from "~/components/flame/calc/setting/SettingSection";
 import { PageTitle } from "~/components/UI/atoms/typography";
 import { Flex } from "~/components/UI/templates/box";
@@ -7,14 +10,18 @@ import { FLAME_PAGE_KEY } from "~/lib/flame/constants";
 
 const Home = () => {
   return (
-    <GlobalProvider pageKey={FLAME_PAGE_KEY}>
+    <MultiProvider
+      // eslint-disable-next-line react/jsx-key
+      providers={[<PageProvider pageKey={FLAME_PAGE_KEY} />, <FlowProvider />]}
+    >
       <Flex gap={16}>
         <Box>
           <PageTitle>환생의 불꽃 기댓값 계산기</PageTitle>
         </Box>
         <SettingSection />
+        <CalcButton />
       </Flex>
-    </GlobalProvider>
+    </MultiProvider>
   );
 };
 
