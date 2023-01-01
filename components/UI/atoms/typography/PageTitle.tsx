@@ -6,7 +6,7 @@ export const PageTitle = styled((props: TypographyProps<"h1">) => (
 ))(({ theme }) => ({
   display: "inline",
   fontSize: 23,
-  fontWeight: 700,
+  fontWeight: 800,
   color: COLORS.MAIN,
   background: `linear-gradient(to right, ${COLORS.MAIN}, ${COLORS.SECONDARY})`,
   WebkitBackgroundClip: "text",

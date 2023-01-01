@@ -142,7 +142,7 @@ export const NavLink = ({
             }}
             className={NAVIGATION_LINK_INFO_BOX_CLASSNAME}
           >
-            <Typography sx={{ color: "white", fontSize: 12, fontWeight: 500 }}>
+            <Typography sx={{ color: "white", fontSize: 12, fontWeight: 700 }}>
               {disabled && "준비 중"}
               {externalLink && "외부 링크"}
             </Typography>
