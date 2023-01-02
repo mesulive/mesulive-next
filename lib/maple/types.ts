@@ -40,3 +40,33 @@ export type WeaponType = z.infer<typeof WeaponType>;
 
 export const isWeaponType = (target: unknown): target is WeaponType =>
   WeaponType.safeParse(target).success;
+
+export const PrimaryStat = z.enum([
+  "STR",
+  "DEV",
+  "INT",
+  "LUK",
+  "HP",
+  "ALL",
+  "ATTACK",
+  "MAGIC_ATTACK",
+  "BOSS_DAMAGE",
+  "DAMAGE",
+  "IGNORE_DEFENSE",
+]);
+
+export type PrimaryStat = z.infer<typeof PrimaryStat>;
+
+export const PrimaryStatInfoMap: Record<PrimaryStat, { text: string }> = {
+  STR: { text: "STR" },
+  DEV: { text: "DEX" },
+  INT: { text: "INT" },
+  LUK: { text: "LUK" },
+  HP: { text: "HP" },
+  ALL: { text: "올스탯" },
+  ATTACK: { text: "공격력" },
+  MAGIC_ATTACK: { text: "마력" },
+  BOSS_DAMAGE: { text: "보공" },
+  DAMAGE: { text: "데미지" },
+  IGNORE_DEFENSE: { text: "방무" },
+};
