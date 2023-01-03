@@ -6,13 +6,13 @@ import { CalcButton } from "~/components/flame/calc/CalcButton";
 import { SettingSection } from "~/components/flame/calc/setting/SettingSection";
 import { PageTitle } from "~/components/UI/atoms/typography";
 import { Flex } from "~/components/UI/templates/box";
-import { FLAME_PAGE_KEY } from "~/lib/flame/constants";
+import { Flame } from "~/lib/flame";
 
 const Home = () => {
   return (
     <MultiProvider
       // eslint-disable-next-line react/jsx-key
-      providers={[<PageProvider pageKey={FLAME_PAGE_KEY} />, <FlowProvider />]}
+      providers={[<PageProvider pageKey={Flame.PAGE_KEY} />, <FlowProvider />]}
     >
       <Flex gap={16}>
         <Box>

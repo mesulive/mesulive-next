@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { Flame } from "~/lib/flame/types";
+import { Flame } from "~/lib/flame";
 import { WeaponType } from "~/lib/maple/types";
 
 export namespace FlameState {

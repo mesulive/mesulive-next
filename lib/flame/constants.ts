@@ -1,1 +1,1 @@
-export const FLAME_PAGE_KEY = "calc/flame";
+export const PAGE_KEY = "calc/flame";
