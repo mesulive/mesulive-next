@@ -22,6 +22,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         sx={(theme) => ({
           backgroundColor: COLORS.BACKGROUND,
           minHeight: "100vh",
+          p: 16,
           mt: HEADER_HEIGHT,
           transition: `margin-left ${NAVIGATION_TOGGLE_DURATION}ms cubic-bezier(0, 0, 0.2, 1) 0ms`, // Drawer transition strategy
 

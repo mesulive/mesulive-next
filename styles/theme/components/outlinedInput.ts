@@ -6,7 +6,7 @@ export const MuiOutlinedInput: ThemeComponents["MuiOutlinedInput"] = {
     root: () => ({
       borderRadius: "10px",
       "&:hover": {
-        "&:not(.Mui-focused):not(.Mui-error) .MuiOutlinedInput-notchedOutline":
+        "&:not(.Mui-focused):not(.Mui-error):not(.Mui-disabled) .MuiOutlinedInput-notchedOutline":
           {
             borderColor: COLORS.GRAY_3,
           },

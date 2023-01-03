@@ -65,12 +65,12 @@ const NavigationDrawer = forwardRef<HTMLDivElement, NavigationDrawerProps>(
       >
         <Box component="nav">
           <GroupTypography>기댓값 계산기</GroupTypography>
-          <NavLink href={"/calc/flame"} icon={Flame} sx={{ mt: 16 }}>
+          <NavLink href="/calc/flame" icon={Flame} sx={{ mt: 16 }}>
             환생의 불꽃
           </NavLink>
           <NavLink
-            href={"/calc/cube"}
-            externalLink={"https://cubemesu.co"}
+            href="/calc/cube"
+            externalLink="https://cubemesu.co"
             icon={Cube}
             sx={{ mt: 16 }}
           >
@@ -78,14 +78,14 @@ const NavigationDrawer = forwardRef<HTMLDivElement, NavigationDrawerProps>(
           </NavLink>
           <GroupTypography sx={{ mt: 32 }}>시뮬레이터</GroupTypography>
           <NavLink
-            href={"/sim/starforce"}
-            externalLink={"https://mesu.live/sim/starforce"}
+            href="/sim/starforce"
+            externalLink="https://mesu.live/sim/starforce"
             icon={Star}
             sx={{ mt: 16 }}
           >
             스타포스
           </NavLink>
-          <NavLink href={"/sim/cube"} disabled icon={Cube} sx={{ mt: 16 }}>
+          <NavLink href="/sim/cube" disabled icon={Cube} sx={{ mt: 16 }}>
             큐브
           </NavLink>
           <HoverBox />
@@ -112,7 +112,7 @@ export const Navigation = () => {
       <NavigationDrawer
         ref={setFirstDrawerRef}
         open
-        variant={"permanent"}
+        variant="permanent"
         sx={(theme) => ({
           [theme.breakpoints.down("desktop")]: {
             display: "none",
@@ -121,12 +121,12 @@ export const Navigation = () => {
       />
       {screenType >= ScreenType.tablet && (
         <NavigationDrawer
-          variant={"persistent"}
+          variant="persistent"
           open={screenType >= ScreenType.desktop || open}
         />
       )}
       {screenType < ScreenType.tablet && (
-        <NavigationDrawer variant={"temporary"} open={open} />
+        <NavigationDrawer variant="temporary" open={open} />
       )}
     </>
   );

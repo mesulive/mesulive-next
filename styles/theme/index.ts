@@ -7,6 +7,10 @@ import { palette } from "~/styles/theme/palette";
 export const theme = createTheme({
   typography: {
     fontFamily: DEFAULT_FONT_FAMILY,
+    fontWeightBold: 800,
+    fontWeightMedium: 600,
+    fontWeightRegular: 500,
+    fontWeightLight: 400,
   },
   spacing: 1,
   palette,

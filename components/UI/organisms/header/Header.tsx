@@ -45,7 +45,7 @@ export const Header = () => {
       >
         <MenuRounded />
       </IconButton>
-      <Link href={"/"} css={{ height: 32 }}>
+      <Link href="/" css={{ height: 32 }}>
         <Logo css={{ height: 32 }} />
       </Link>
     </Flex>
